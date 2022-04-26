@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin:0px;
+            padding:0px;
+        }
+        canvas {
+            display: block;
+            border:3px solid black;
+            background-color: yellow;
+        }
+        #square1 {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background: lightblue;
+            transform: scale(3,1) translate(100px,70%);
+
+        }
+        #square1:hover {
+
+        }
+        #square2 {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background: yellow;
+           
+
+        }
+    </style>
+    <script type = "text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyDDuGt0E5IEGkcE6ZfrKfUtE9Ko_de66pA"></script>
+</head>
+<body>
+    <input type="text" id="input">
+    <div id = "square2" class="square1"></div>
+    <ul>
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+        <li>item 4</li>
+        <li>item 5</li>
+    </ul>
+    <canvas class="canvas"  width = "300px" height = "900px" id = "canvas">Canva</canvas>
+    
+
+    <script>
+        /*
+
+        function number(n) {
+            let mas = []
+            if(n == 1) {
+                return 1;
+            }
+            else {
+                console.log(number(n-1) + 1);
+                return number(n-1) + 1;
+            }
+        }
+
+        console.log(number(6));
+
+        function fibb(n){
+            if(n == 0 || n == 1) 
+            {
+                return 1;
+            }
+            else {
+                return  fibb(n-1) + fibb(n-2);
+            }
+        }
+        console.log(fibb(10));
+
+        let a = document.cookie = `artem=12345;expires = ${new Date().getHours() + 1}`;
+
+        document.cookie = "favorite_food=tripe";
+        alert(a);
+
+        document.body.innerHTML = window.Geolocation.watchPosition();
+        console.log(window.navigator.appCodeName);
+        console.log(window.navigator.appName);
+        console.log(window.navigator.appVersion);
+        console.log(window.navigator.clipboard);
+        let input = document.querySelector("input");
+        let square = document.querySelector("#square2");
+        square.onclick = (event)=> {
+            console.log(event.currentTarget); 
+            
+            
+        }
+        input.onkeypress = (event) => {
+            if((event.key >= 0 && event.key <=9) || event.key == '-' || event.key == "!" ) 
+            {
+                
+                event.stopPropagation();
+                event.preventDefault();
+            }
+            else {
+                console.log(event.type);
+            }
+            console.log(event.key);
+        }
+        
+
+        let canvas = document.querySelector("#canvas");
+        let context = canvas.getContext("2d");
+        let iterator = 50;
+        context.beginPath();
+        context.lineWidth = 5;
+        context.moveTo(0,0);
+        context.font = "40px serif";
+        context.textAlign = "center";
+        for(let i = 0;i < 15;i++ )
+        {
+            iterator+=50;
+            context.fillText("Hello world",150,iterator);
+        }
+     
+        
+        let image = new Image(300,300);
+        image.style.border = "5px solid black";
+        image.src = "https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg";
+        document.body.append(image);
+        document.body.prepend(image);
+
+
+    
+        
+        /*
+        context.strokeRect(0,0,200,100);
+        context.moveTo(200,0);
+        context.strokeRect(0,0,200,200);
+        context.arc(150,150,100,0,Math.PI * 2);
+        */ 
+        /*
+        context.lineWidth = 10;
+        context.lineTo(150,150);
+        context.lineTo(300,0);
+
+        context.moveTo(0,canvas.height);
+        context.lineTo(150,150);
+        context.lineTo(300,300)
+        */
+
+
+ 
+        
+        
+
+        
+
+
+
+        /*
+        let arr = [3,4,51,123,53];
+        console.log(arr);
+
+        let promise = new Promise((resolve,reject)=> {
+            resolve("every ok");
+            reject("bad");
+        }).then((resolve)=> {
+            console.log(value);
+        })
+        console.log(promise);
+        let yellowSquare = document.querySelector("#square2");
+        let lightSquare = document.querySelector("#square1");
+        let numb = 10;
+        alert(yellowSquare.clientHeight + "x" + yellowSquare.clientWidth)
+        yellowSquare.onclick = () => {
+
+        setInterval(function(){
+            numb+=10;
+            yellowSquare.style.transform = `rotateZ(${numb}deg)`;
+            yellowSquare.style.left = `${numb}px`;
+        },100) 
+        
+    }
+        /*
+        let number = 0;
+        
+        let f = setInterval(function ok(){
+            number+=50;
+            yellowSquare.style.left = `${number}px`;
+            yellowSquare.style.top = `${Math.random() *150}px`;
+        },200)
+        
+        setTimeout(function(){
+            yellowSquare.style.visibility = "hidden";
+        },2000)
+        window.onclick = () => {alert( + "x" + window.screenY)};
+
+
+        yellowSquare.addEventListener("mouseover",function(){
+            yellowSquare.style.backgroundColor = "red";
+            yellowSquare.style.left += "20px";
+            
+        })
+        yellowSquare.addEventListener("mouseout",function(){
+            yellowSquare.style.backgroundColor = "yellow";
+            
+        })
+        
+        document.title = "Privet vsem";
+        
+        
+*/
+        /*
+
+        var fullname = "Artem Vasko Alexanderovich";
+        
+        console.log("charAt:0",fullname.charAt(0));
+        console.log("indexOf('A')",fullname.indexOf('A'));
+        console.log("lastIndex('A')",fullname.lastIndexOf('A'));
+
+        let name = fullname.slice(0,fullname.indexOf(" "));
+        let surname = fullname.slice(fullname.indexOf(" ") + 1,fullname.lastIndexOf(" ")).trim();
+        
+        console.log("name is",name);
+        console.log("surname is",surname);
+        fullname = fullname.substr(0,name.length);
+        
+        
+        console.log(fullname);
+
+
+        class Book {
+            get _pages() {
+                let page = 400;
+                return page;
+            }
+            set _price(value) 
+            {
+                return value;
+            }
+        }
+        var tomas = new Book();
+        tomas._pages = 10000; 
+        tomas._price = 500;
+        console.log(tomas._price);
+        console.log(tomas._pages);
+
+
+        class Animal {
+            constructor(name,age)
+            {
+                this.name = name;
+                this.age = age;
+
+                
+            }
+             hi() 
+                {
+                    console.log(`Hi ${this.name} with age ${this.age} years`)
+                }
+
+
+        }
+
+        class Dog extends Animal {
+            toSay() {
+                console.log("Gav gav");
+            }
+        }
+        class Cat extends Animal {
+            toSay()
+            {
+                console.log("Meow,meow to me...")
+            }
+        }
+
+
+        let animal = new Animal("rail",15);
+        let cat = new Cat("Cat",14);
+        let dog = new Dog("rex",10);
+        animal.hi();
+        console.log(cat.age);
+        console.log(dog.name);
+        cat.toSay();
+        dog.toSay();
+
+        // nested function
+        let maps = new Map();
+        
+        maps.set('a',1);
+        maps.set('b',2);
+        maps.set('c',3);
+        maps.delete('b');
+        console.log(maps);
+        console.log(maps.get('a'));
+        console.log(maps.get('b'));
+
+        let mas = [10,3,10023,53,131];
+        function ascending(mas) 
+        {
+            return mas.sort((a,b) => {return a +b});
+        }
+        mas = mas.sort();
+        console.log(mas.sort((a,b)=> b-a)); // descending sort
+        mas.filter(function(value,number,array){
+            array[number] = value*3; // Працюэ
+        })
+        mas.reduce(function(preValue,currentValue,currentIndex,array) {
+            preValue = array[currentIndex] *= 5;
+            return preValue;
+        })
+        console.log(mas);
+
+        function hello() {
+
+            helloAmerica();
+            helloMexico();
+
+            function helloAmerica()
+            {
+                console.log("Hello America");
+            }
+
+            function helloMexico() 
+            {
+                console.log("Hello mexico");
+            }
+        }
+        hello();
+
+        let [a,b,c,d] = [10,12,13,14];
+        
+        function sum(...numbers)
+        {
+            let total = 0;
+            for(let i of numbers) {
+                total+=i;
+            }
+            return console.log(total);
+        }
+
+        function minus(...numbers)
+        {
+            console.info("Minus function");
+            let total = 0;
+            let firstElem = numbers[0];
+            for(let i = 1;i < arguments.length;i++)
+            {
+                total+=arguments[i];
+            }
+            firstElem-=total;
+            return console.log(firstElem);
+        }
+        // Sum function
+        sum(a,b);
+
+        sum(a,b,c);
+        sum(a,b,c,d);
+
+        // Minus function
+        minus(a,b);
+        minus(a,b,c);
+        minus(a,b,c,d);
+    
+
+
+
+
+        let n = 4;
+        let e = new Error();
+        e.message = "А нам все равно";
+        console.log(e);
+        try {
+            if(n == 5) throw console.log("N==5");
+            else {
+                throw console.log(new Error("pizdec"));
+            }
+        }
+        catch {
+            if(n !=5) throw console.log("Ошибка");
+        }
+        finally {
+            console.log("Скрипт завершен")
+        }
+
+
+        class Node {
+            constructor(value,next = null)
+            {
+                this.value = value;
+                this.next = next;
+            }
+
+
+        }
+
+        class LinkedList {
+            constructor()
+            {
+                this.head = head;
+                this.tail = tail;
+            }
+            append() {
+                if(!head || !tail)
+                 {
+                    head = null;
+                    tail = null
+
+                    return this;
+
+                    }
+            }
+            
+
+        }
+
+        function recursive(n)
+        {
+            console.log("Началось",n);
+            if(n == 0 || n ==1 )
+            {
+                return 1;
+            }
+            else {
+                return n * recursive(n-1); // Сраный факториал
+            }
+        }
+        console.log(recursive(5));
+        
+        function fib(n) 
+        {
+            if(n == 1 || n ==2)
+            {
+                return 1;
+            }
+            else 
+            {
+                return fib(n-1);    
+            }
+        }
+        console.log(fib(5));
+        
+
+        class Person {
+
+            constructor(name,goal)
+            {
+                this.name = name;
+                this.goal = goal;
+
+
+                function printStart() {
+                    document.write("Let`s start the game");
+                }
+                printStart();
+            }
+
+            printInformation()
+            {
+                document.write("Hello, my dear", name);
+                document.write(`\n
+                    \nYour goal is being ${this.goal};
+                `)
+            }
+            
+        }
+
+        class Admin {
+            constuctor(name) {
+                this.name = name;
+                function write() {
+                    document.write("Твои функции - админить");
+                }
+                
+            }
+        }
+        let andrey = new Person("Andrey","success");
+        let egorov = new Admin("Egor");
+        egorov.__proto__ = andrey;
+        egorov.printInformation();
+        egorov.printInformation();
+
+
+
+        //    const factorial = (n)=> {
+        //        if(n == 1)
+        //        {
+        //            return 1;
+        //        }
+        //        else {
+        //            return n*factorial(n-1);
+        //        }
+        //    }
+        //    console.log("Факториал от числа",factorial(5));
+
+        //    const fibbonachi = (n) => {
+        //        // 1,1,2,3,5
+        //        if(n == 1 || n == 2) {
+        //            return 1;
+        //        }
+        //        return fibbonachi(n-1) + fibbonachi(n-2);
+
+        //    }
+        //    console.log(fibbonachi(6));
+        //    // Реализуйте функцию, принимающую строку и инвертирующую ее. Например, строка «JavaScript» должна стать строкой «tpircSava
+        //    const invert = (n) => {
+        //        if(n == 0) {
+        //             break;
+        //        }
+        //        else {
+        //            return invert(n-1)
+        //        }
+        //    }
+        //    function bubbleSort()
+        //     {
+        //         let massiv = [5,3,10,2,15,23,4];
+        //         let newMas = [];
+        //          let min = 0;
+        //          for(let i = 0; i < massiv.length;i++){
+        //              for(let j = 0; j < massiv.length;j++)
+        //              {
+        //                 if(massiv[j+1] < massiv[j])
+        //                 {
+        //                     let temp = massiv[j+1];
+        //                     massiv[j+1] =  massiv[j]; // Bubble sort - is working hard today.
+        //                     massiv[j] = temp;
+                            
+        //                 }
+        //              }
+        //              console.log(massiv);
+        //          }
+                
+        //     }
+            // bubbleSort();
+            // function sortirovka() 
+            // {
+            //     let massiv = [5,3,10,2,15,23,4];
+            //     let newMas = [];
+            //     let min = 0;
+            //     for(let i = 0; i < massiv.length;i++)
+            //     {
+            //         min = massiv[i];
+            //         for(let j = i;j < massiv.length;j++)
+            //         {
+                        
+            //             if(min > massiv[j])
+            //             {
+            //                 let temp = min;
+            //                 min = massiv[j];
+            //                 massiv[j] = temp;
+                            
+                            
+            //             }
+            //             massiv[i] = min;
+            //             newMas.push(massiv[j]);
+                        
+            //         }
+            //         console.log(massiv); // отсортированный массив. Сортировка выбором
+            //         newMas = [];
+            //     }
+            // }
+            // sortirovka();
+
+
+            let massiv = ['Ryan','Igor','Artem'];
+            // function friend(massiv)
+            // {
+            //     const realFriends = [];
+
+            //     for(let i of massiv)
+            // {
+            //         if(i.length == 4)
+            //         {   
+            //             realFriends.push(i);
+            //             console.log(realFriends," it`s my frend")
+            //         }
+            //         else {
+            //             console.log("foe");
+            //         }
+            //     }
+            // }
+            // friend(massiv);
+            function friend(massiv) {
+                return massiv.filter(friend => friend.length == 4);
+                console.log(massiv);
+                // const realFriends = [];
+                // //  massiv.forEach(friend => {
+                // //      if(friend.length == 4)
+                // //      {
+                // //         realFriends.push(friend);
+                // //         console.log(realFriends);
+                // //      }
+                // //  })
+
+                // massiv.map((friend)=> {
+                //     if(friend.length == 4) 
+                //     {
+                //         realFriends.push(friend);
+                //         console.log(realFriends); 
+                //     }
+                // })
+            }
+            console.log(friend(massiv));
+
+        /*
+        
+        function solution(number){
+            
+            number = number.toString();
+            let romanNumbers = ['I','V','X','L','C','D','M'];
+            let numbers = [1,5,10,50,100,500,1000];
+
+            let obj = {
+                1:'I',
+                5:'V',
+                10:'X',
+                50:'L',
+                100:'C',
+                500:'D',
+                1000:'M'
+
+            }
+            console.log(obj[1])
+            for(let i in obj)
+            {
+                console.log(i);
+            }
+            for(let j in obj)
+            for(let i = 0;i < number.length;i++)
+            {
+                if(number[i] == numbers[j])
+                {
+                    console.log(number[i])
+                }
+                
+            }
+            console.log(typeof(number));
+        }
+        solution(10);
+        */ 
+        /*
+        window.onload = function(){
+            var canvas = document.getElementById("canvas"),
+                context = canvas.getContext("2d"),
+                width = canvas.width = window.innerWidth,
+                height = canvas.height = window.innerHeight;
+
+                context.translate(200,200);
+                context.scale(1,-1);
+                // рисуем синосоиду
+                
+                var centerY = height * .5,
+		centerX = width * .5,
+		baseAlpha = 0.5,
+		offset = 0.5,
+		speed = 0.1,
+		angle = 0;
+
+	render();
+
+	function render() {
+		var alpha = baseAlpha + Math.sin(angle) * offset;
+
+		context.fillStyle = "rgba(0, 0, 0, " + alpha + ")";
+
+		context.clearRect(0, 0, width, height);
+		context.beginPath();
+		context.arc(centerX, centerY, 100, 0, Math.PI * 2, false);
+		context.fill();
+        context.stroke();
+
+		angle += speed;
+
+		requestAnimationFrame(render);
+	}
+
+*/
+
+                /*
+               for(let i = 0;i < 150;i++)
+               {
+                   context.beginPath();
+                   context.moveTo(Math.random() * width,Math.random()*height);
+                   context.lineTo(50,50);
+                   context.lineTo(100,100);
+                   context.stroke();
+               }
+               */ 
+                
+
+            /*
+                context.beginPath();
+                context.moveTo(100,100);
+                context.lineTo(150,150);
+                context.lineTo(170,170);
+                context.closePath();
+                context.stroke();
+
+                moveTo(130,130);
+                arc(50,50,10,0,150,150);
+                for(let i = 0;i < 4;i++)
+                {
+                    context.beginPath();
+                    context.moveTo(0,0);
+                    context.lineTo(width,0);
+                    context.stroke();
+                    
+                }
+                    */ 
+                /*
+                context.fillRect(50,50,100,100);
+                context.clearRect(75,75,20,20);
+                context.clearRect(110,75,20,20);
+                context.clearRect(70,120,60,10);
+               */ 
+
+                /*
+                context.fillStyle = "rgba(0,0,230,0.6)";
+                let colorRandom = Math.floor(Math.random() * (255-32) + 32);
+                for(let i = 0;i < 50;i++){
+                    context.fillStyle = `rgba(200,143,131,0.6)`;
+                    context.fillRect(Math.random() * width,Math.random()*height,40,50);
+
+                }
+                context.fillStyle = "rgba(200,0,0,0.6)"
+                for(let j = 0;j < 15;j++)
+                {
+                    context.strokeRect(Math.random() * width,Math.random()*height,50,50);
+                }
+                */
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        
+        // бинарный поиск - делим массив на две составляющие
+
+
+      
+
+
+
+
+        // ЧИСЛА ФИББОНАЧИ
+        // [1,2,3,5,8,13];
+        
+/*
+var arrays = [[1, 2, 3], [4, 5], [6]];
+let ar = [1,2,3,7];
+
+let newArr = [];
+let arr = arrays.reduce((recorder,current)=>{
+    return newArr.push(current);
+})
+
+*/ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+var latlng = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+var myOptions = {
+  zoom: 8,
+  center: latlng,
+  mapTypeId: google.maps.MapTypeId.TERRAIN,
+  disableDefaultUI: true
+}
+
+
+
+
+
+        // рекурсивную бахнем
+        // факториал числа
+
+        let media = new HTMLMediaElement();
+
+
+        function parentFunc()
+        {
+            var a = 1; // Вложенные функции
+
+            function nestedFunc(){
+                var b = 4;
+                function nextFunc() 
+                    {
+                        var c = a + b + 1;
+                        return c;
+                    }
+                return nextFunc();
+            }
+            return nestedFunc();
+        }
+
+
+
+        console.log(parentFunc());
+
+
+        console.log(isNaN("dsada"),isFinite(10 / 0));
+        */ 
+        /*
+        
+        const myNote = new Notification("Hello");
+
+        const person = {
+            name:"Artem",
+            age:32,
+            greet:function(){
+                alert("Hi,I am " + this.name);
+            } ,
+            bye:function(){
+                alert("You are the best" + this.name)
+            }
+        }
+
+        person.farewell = function(){alert("Тревога")};
+        let x = new Object(function cook(){alert("Тревога");s=function s(){alert("Нах")}});
+        
+        let pers = Object.create();
+        
+
+
+        var dogNames = ['rex','mur','her vsem'];
+        let dogs = dogNames.join(",");
+        let d = ['her','suck'].join(",");
+        let m = (15).toString().concat(" ").repeat(10);
+        let sliced = dogNames.slice(0,2);
+        let spl = dogNames.splice(0,1);
+        let kek = [{name:"Artem",surname:"Vasko"},[3,5,6]];
+        dogNames.push('kot','suck');
+        dogNames.pop("what");
+
+        let xml = new XMLHttpRequest();
+        
+
+        dogNames = dogNames.toString();
+
+        */ 
+        
+    </script>
+</body>
+</html>
